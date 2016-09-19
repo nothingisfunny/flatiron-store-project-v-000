@@ -13,3 +13,20 @@ Item.all.each do |item|
   item.save
   counter += 1
 end
+
+3.times do 
+  User.create(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password)
+end
+
+Cart.create!(user_id: User.last.id)
+
+3.times do |i|
+  LineItem.create(
+    item_id: i+1,
+    cart_id: Cart.last.id,
+    quantity: i+1
+    )
+end
+

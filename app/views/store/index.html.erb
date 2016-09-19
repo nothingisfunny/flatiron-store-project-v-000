@@ -5,6 +5,6 @@
 
 <% @items.each do |item| %>
   <% if item.inventory > 0 %>
-    <p><%= item.title %> | <%= number_to_currency(item.price.to_f/100) %> | <% if current_user %> <%= button_to 'Add to Cart', line_items_path(item_id: item.id) %> <% end %></p>
+    <p><%= item.title %> | <%= number_to_currency(item.price.to_f/100) %> | <%= item.inventory %> available | <% if current_user %>  <%= button_to 'Add to Cart', line_items_path(item_id: item.id) %> <% end %></p>
   <% end %>
 <% end %>
